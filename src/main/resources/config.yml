@@ -1,0 +1,42 @@
+# General Settings
+general:
+
+  #Should be either "SQLITE" OR "MYSQL"
+  sync-mode: SQLITE
+
+  #Wheather or not Whitelist Sync Should Sync Ops
+  sync-ops: false
+  log-remote-changes: false
+
+# Settings Related to the SQLite Database Sync Mode
+sqlite:
+  database-path: ./whitelist.db
+
+  #Mode for SQLite Change Detection
+  #INTERVAL is the simple mode, just checks every X seconds.
+  #LISTENER listens to the file for changes (can be faster).
+  mode: INTERVAL
+
+  #Time in seconds for the service to check the filesystem listener for changes (ONLY WHEN IN INTERVAL MODE)
+  sync-time: 60
+
+  #Time in seconds for the service to check the database file listener for changes (ONLY WHEN IN LISTENER MODE)
+  listener-time: 10
+
+# Settings Related to the MYSQL Database Sync Mode
+mysql:
+  #Name of the database
+  database-name: WhitelistSync
+
+  #IP of the MYSQL Server
+  ip: localhost
+
+  #Port of the MYSQL Server
+  port: 3306
+
+  #Login Information (This SHOULD NOT be root) I am not responsible for your security issues ;)
+  username: root
+  password: password
+
+  #Time in seconds for the service to check the database for changes
+  sync-time: 30

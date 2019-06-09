@@ -1,3 +1,14 @@
-name: com.potatosaucevfx.whitelistsync2.WhitelistSync2
+name: WhitelistSync2
 version: 2.0-1.14.2
 main: com.potatosaucevfx.whitelistsync2.WhitelistSync2
+
+commands:
+  wl:
+    description: Command for whitelisting players and syncing the changes with connected servers.
+    usage: /wl <list|add|remove|sync|copyServerToDatabase>
+    permission: whitelistsync2.wl
+
+  wlop:
+    description: Command for opping players and syncing the changes with connected servers.
+    usage: /wlop <list|op|deop|sync|copyServerToDatabase>
+    permission: whitelistsync2.op
