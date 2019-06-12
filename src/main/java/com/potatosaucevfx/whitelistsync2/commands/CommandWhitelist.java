@@ -47,17 +47,14 @@ public class CommandWhitelist implements CommandExecutor {
                                 sender.sendMessage(user.getName() + " added to the whitelist.");
                             } else {
                                 sender.sendMessage("Error adding " + user.getName() + " from whitelist!");
-                                return false;
                             }
 
                         } else {
                             sender.sendMessage("User " + args[1] + " not found!");
-                            return false;
                         }
 
                     } else {
                         sender.sendMessage("You must specify a name to add to the whitelist!");
-                        return false;
                     }
                 } // Actions for removing player from whitelist
                 else if (args[0].equalsIgnoreCase("remove")) {
@@ -72,12 +69,10 @@ public class CommandWhitelist implements CommandExecutor {
                                 sender.sendMessage(player.getName() + " removed from the whitelist.");
                             } else {
                                 sender.sendMessage("Error removing " + player.getName() + " from whitelist!");
-                                return false;
                             }
 
                         } else {
                             sender.sendMessage("You must specify a valid name to remove from the whitelist!");
-                            return false;
                         }
 
                     }
@@ -89,7 +84,6 @@ public class CommandWhitelist implements CommandExecutor {
                         sender.sendMessage("Local up to date with database!");
                     } else {
                         sender.sendMessage("Error syncing local to database!");
-                        return false;
                     }
 
                 } // Sync server to database
@@ -99,19 +93,16 @@ public class CommandWhitelist implements CommandExecutor {
                         sender.sendMessage("Pushed local to database!");
                     } else {
                         sender.sendMessage("Error pushing local to database!");
-                        return false;
                     }
 
-                } else {
-                    sender.sendMessage(USAGE_STRING);
+                }
+                else {
                     return false;
                 }
             } else {
-                sender.sendMessage(USAGE_STRING);
                 return false;
             }
         } else {
-            sender.sendMessage(USAGE_STRING);
             return false;
         }
 

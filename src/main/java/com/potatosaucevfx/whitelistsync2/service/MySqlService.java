@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class MySqlService implements BaseService {
@@ -36,14 +37,14 @@ public class MySqlService implements BaseService {
         this.database = config.getString("mysql.database-name");
         this.syncOps = config.getBoolean("general.sync-ops");
         this.logRemoteChanges = config.getBoolean("general.log-remote-changes");
-        this.url = "jdbc:mysql://" + config.getString("mysql.ip") + ":" + config.getInt("mysql.port") + "/?serverTimezone=UTC&autoReconnect=true";
+        this.url = "jdbc:mysql://" + config.getString("mysql.ip") + ":" + config.getInt("mysql.port") + "/?serverTimezone=UTC&autoReconnect=true&useSSL=false";
         this.username = config.getString("mysql.username");
         this.password = config.getString("mysql.password");
         this.syncTime = config.getInt("mysql.sync-time");
 
         // Check for lib
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (ClassNotFoundException ex) {
             logger.severe("Failed to connect to the mySQL database! mysql-connector library missing!\n" + ex.getMessage());
         } catch (InstantiationException ex) {
@@ -57,6 +58,7 @@ public class MySqlService implements BaseService {
             openConnection();
             Statement statement = conn.createStatement();
             logger.info("Connected to MYSQL Database!");
+            loadDatabase();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
@@ -547,7 +549,7 @@ public class MySqlService implements BaseService {
                 if (whitelisted == 1) {
                     if (!localUuids.contains(uuid)) {
                         try {
-                            Bukkit.getOfflinePlayer(uuid).setWhitelisted(true);
+                            Bukkit.getOfflinePlayer(UUID.fromString(uuid)).setWhitelisted(true);
 
                             if(logRemoteChanges) {
                                 logger.info("Added " + name + " to whitelist.");
@@ -559,7 +561,7 @@ public class MySqlService implements BaseService {
                     }
                 } else {
                     if (localUuids.contains(uuid)) {
-                        Bukkit.getOfflinePlayer(uuid).setWhitelisted(false);
+                        Bukkit.getOfflinePlayer(UUID.fromString(uuid)).setWhitelisted(false);
 
                         if(logRemoteChanges) {
                             logger.info("Removed " + name + " from whitelist.");
@@ -607,7 +609,7 @@ public class MySqlService implements BaseService {
                 if (isOp == 1) {
                     if (!localUuids.contains(uuid)) {
                         try {
-                            Bukkit.getOfflinePlayer(uuid).setOp(true);
+                            Bukkit.getOfflinePlayer(UUID.fromString(uuid)).setOp(true);
 
                             if(logRemoteChanges) {
                                 logger.info("Opped " + name + ".");
@@ -619,7 +621,7 @@ public class MySqlService implements BaseService {
                     }
                 } else {
                     if (localUuids.contains(uuid)) {
-                        server.getPlayer(name).setOp(false);
+                        Bukkit.getOfflinePlayer(UUID.fromString(uuid)).setOp(false);
 
                         if(logRemoteChanges) {
                             logger.info("Deopped " + name + ".");

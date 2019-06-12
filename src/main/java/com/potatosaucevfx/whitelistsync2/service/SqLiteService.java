@@ -13,6 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class SqLiteService implements BaseService {
@@ -569,7 +570,7 @@ public class SqLiteService implements BaseService {
                     }
                 } else {
                     if (localUuids.contains(uuid)) {
-                        Bukkit.getOfflinePlayer(uuid).setWhitelisted(false);
+                        server.getPlayer(UUID.fromString(uuid)).setWhitelisted(false);
 
                         if (logRemoteChanges) {
                             logger.info("Removed " + name + " from whitelist.");
@@ -630,7 +631,7 @@ public class SqLiteService implements BaseService {
                     }
                 } else {
                     if (localUuids.contains(uuid)) {
-                        Bukkit.getOfflinePlayer(uuid).setOp(false);
+                        server.getPlayer(UUID.fromString(uuid)).setOp(false);
                         if (logRemoteChanges) {
                             logger.info("Deopped " + name + ".");
                         }
