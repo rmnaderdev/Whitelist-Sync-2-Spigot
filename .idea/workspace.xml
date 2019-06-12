@@ -38,8 +38,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/service/MySqlService.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="167">
-                  <caret line="610" column="29" lean-forward="true" selection-start-line="610" selection-start-column="29" selection-end-line="610" selection-end-column="29" />
+                <state relative-caret-position="541">
+                  <caret line="608" column="32" lean-forward="true" selection-start-line="608" selection-start-column="32" selection-end-line="608" selection-end-column="32" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -340,8 +340,8 @@
     <frame x="-7" y="-7" width="2575" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941927" visible="true" weight="0.13518886" />
-      <window_info id="Structure" order="1" sideWeight="0.5005807" side_tool="true" visible="true" weight="0.13518886" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49961028" visible="true" weight="0.13518886" />
+      <window_info id="Structure" order="1" sideWeight="0.5003897" side_tool="true" visible="true" weight="0.13518886" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -349,7 +349,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32969603" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3289166" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3289166" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39672643" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -588,8 +588,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/service/MySqlService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="610" column="29" lean-forward="true" selection-start-line="610" selection-start-column="29" selection-end-line="610" selection-end-column="29" />
+        <state relative-caret-position="541">
+          <caret line="608" column="32" lean-forward="true" selection-start-line="608" selection-start-column="32" selection-end-line="608" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
