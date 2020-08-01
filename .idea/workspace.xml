@@ -22,33 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44ec6f79-4cbf-4783-8bd0-fcdd441196fb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/WhitelistSync2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/json/OppedPlayersFileUtilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/json/WhitelistedPlayersFileUtilities.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/models/OppedPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/models/WhitelistedPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/service/BaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/service/MySqlService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/service/SqLiteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/service/SyncThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/Utilities.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/WhitelistSync2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/commands/CommandOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/commands/CommandOp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/commands/CommandWhitelist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pw/twpi/whitelistsync2/commands/CommandWhitelist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/json/OPlistRead.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/json/WhitelistRead.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/models/OpUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/models/WhitelistUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/service/BaseService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/service/MySqlService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/service/SqLiteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/potatosaucevfx/whitelistsync2/service/SyncThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-    </list>
+    <list default="true" id="44ec6f79-4cbf-4783-8bd0-fcdd441196fb" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,22 +130,22 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596248748045" />
-    <state width="2517" height="306" key="GridCell.Tab.0.bottom" timestamp="1596251455034">
+    <state width="2517" height="306" key="GridCell.Tab.0.bottom" timestamp="1596252099819">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596251455034" />
-    <state width="2517" height="306" key="GridCell.Tab.0.center" timestamp="1596251455034">
+    <state width="2517" height="306" key="GridCell.Tab.0.bottom/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596252099819" />
+    <state width="2517" height="306" key="GridCell.Tab.0.center" timestamp="1596252099818">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596251455034" />
-    <state width="2517" height="306" key="GridCell.Tab.0.left" timestamp="1596251455034">
+    <state width="2517" height="306" key="GridCell.Tab.0.center/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596252099818" />
+    <state width="2517" height="306" key="GridCell.Tab.0.left" timestamp="1596252099818">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596251455034" />
-    <state width="2517" height="306" key="GridCell.Tab.0.right" timestamp="1596251455034">
+    <state width="2517" height="306" key="GridCell.Tab.0.left/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596252099818" />
+    <state width="2517" height="306" key="GridCell.Tab.0.right" timestamp="1596252099819">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="306" key="GridCell.Tab.0.right/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596251455034" />
+    <state width="2517" height="306" key="GridCell.Tab.0.right/0.0.2560.1400/-3840.0.2560.1400/3840.0.2560.1400@0.0.2560.1400" timestamp="1596252099819" />
     <state x="811" y="356" key="Maven.ArtifactSearchDialog" timestamp="1596247471826">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
