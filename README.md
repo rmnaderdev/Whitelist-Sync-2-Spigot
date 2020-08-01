@@ -46,4 +46,4 @@ Looking for a forge mod? Find it on the [WhitelistSync2 GitHub](https://github.c
 - /wlop sync | Pulls list of ops from the database and updates local server ops.
 - /wlop copyServerToDatabase | Pushes local server ops to database and merges them in.
 
-Please post your bugs to [GitHub](https://github.com/PotatoSauceVFX/Whitelist-Sync-2/issues "GitHub") or better yet make a pull request!
+Please post your bugs to [GitHub](https://github.com/PotatoSauceVFX/Whitelist-Sync-2-Spigot/issues "GitHub") or better yet make a pull request!
