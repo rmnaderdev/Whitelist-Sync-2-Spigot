@@ -1,6 +1,6 @@
 name: WhitelistSync2
-version: 2.0-1.14.2
-main: com.potatosaucevfx.whitelistsync2.WhitelistSync2
+version: 1.16.1-2.2.1
+main: pw.twpi.whitelistsync2.WhitelistSync2
 
 commands:
   wl:
