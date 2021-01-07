@@ -10,6 +10,7 @@ import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WhitelistSync2 extends JavaPlugin {
@@ -31,6 +32,8 @@ public class WhitelistSync2 extends JavaPlugin {
         LOGGER.info("Setting up Whitelist Sync!");
 
         SERVER_FILEPATH = getServer().getWorldContainer().getAbsolutePath();
+
+        LOGGER.info("Server Filepath: " + SERVER_FILEPATH);
 
         server.setWhitelist(true);
 

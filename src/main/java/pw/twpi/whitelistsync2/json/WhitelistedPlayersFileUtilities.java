@@ -1,14 +1,12 @@
 package pw.twpi.whitelistsync2.json;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import pw.twpi.whitelistsync2.WhitelistSync2;
 import pw.twpi.whitelistsync2.models.WhitelistedPlayer;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -27,7 +25,12 @@ public class WhitelistedPlayersFileUtilities {
         // Get Json data
         getWhitelistedPlayersFromFile().forEach((user) -> {
             String uuid = ((JsonObject) user).get("uuid").getAsString();
-            String name = ((JsonObject) user).get("name").getAsString();
+
+            JsonElement nameElement = ((JsonObject) user).get("name");
+            String name = "";
+            if(nameElement != null) {
+                name = nameElement.getAsString();
+            }
 
             // Create DTO
             WhitelistedPlayer whitelistedPlayer = new WhitelistedPlayer();
@@ -46,14 +49,19 @@ public class WhitelistedPlayersFileUtilities {
         JsonArray whitelist = null;
         try {
             // Read data as Json array from server directory
-            whitelist = (JsonArray) parser.parse(new FileReader(WhitelistSync2.SERVER_FILEPATH + "/whitelist.json"));
+            FileReader fileReader = new FileReader(WhitelistSync2.SERVER_FILEPATH + "/whitelist.json");
+            whitelist = (JsonArray) parser.parse(fileReader);
 
+            fileReader.close();
             // WhitelistSync2.LOGGER.debug("getWhitelistedPlayersFromFile returned an array of " + whitelist.size() + " entries.");
         } catch (FileNotFoundException e) {
             WhitelistSync2.LOGGER.severe("whitelist.json file not found.");
             e.printStackTrace();
         } catch (JsonParseException e) {
             WhitelistSync2.LOGGER.severe("whitelist.json parse error.");
+            e.printStackTrace();
+        } catch (IOException e) {
+            WhitelistSync2.LOGGER.severe("whitelist.json read error.");
             e.printStackTrace();
         }
 

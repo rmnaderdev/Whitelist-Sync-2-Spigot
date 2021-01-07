@@ -1,9 +1,6 @@
 package pw.twpi.whitelistsync2.json;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import pw.twpi.whitelistsync2.WhitelistSync2;
 import pw.twpi.whitelistsync2.models.OppedPlayer;
 
@@ -27,7 +24,12 @@ public class OppedPlayersFileUtilities {
         // Get Json data
         getOppedPlayersFromFile().forEach((user) -> {
             String uuid = ((JsonObject) user).get("uuid").getAsString();
-            String name = ((JsonObject) user).get("name").getAsString();
+
+            JsonElement nameElement = ((JsonObject) user).get("name");
+            String name = "";
+            if(nameElement != null) {
+                name = nameElement.getAsString();
+            }
 
             // Create DTO
             OppedPlayer oppedPlayer = new OppedPlayer();
