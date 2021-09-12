@@ -45,7 +45,7 @@ Looking for a forge mod? Find it on the [WhitelistSync2 GitHub](https://github.c
 - /wlop copyServerToDatabase | Pushes local server ops to database and merges them in.
 
 
-## Permissions
+## Permissions (as of WL Sync v2.2.3)
 - **whitelistsync2.wl.manage**: Allows the user to update the whitelist using the add, remove, sync, and copyServerToDatabase commands.
 - **whitelistsync2.wl.view**: Allows the user to view whitelisted players using the list command.
 - **whitelistsync2.wlop.manage**: Allows the user to update the op list using the add, remove, sync, and copyServerToDatabase commands.
