@@ -1,6 +1,6 @@
 package pw.twpi.whitelistsync2.json;
 
-import com.google.gson.*;
+import net.minecraft.util.com.google.gson.*;
 import pw.twpi.whitelistsync2.WhitelistSync2;
 import pw.twpi.whitelistsync2.models.WhitelistedPlayer;
 

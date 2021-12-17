@@ -1,5 +1,5 @@
 name: WhitelistSync2
-version: 1.17.1-2.2.3
+version: 1.7.10-2.2.3
 main: pw.twpi.whitelistsync2.WhitelistSync2
 
 commands:
