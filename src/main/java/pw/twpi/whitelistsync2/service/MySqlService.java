@@ -22,7 +22,7 @@ public class MySqlService implements BaseService {
 
     public MySqlService() {
         this.databaseName = WhitelistSync2.CONFIG.getString("mysql.database-name");
-        this.url = "jdbc:mysql://" + WhitelistSync2.CONFIG.getString("mysql.ip") + ":" + WhitelistSync2.CONFIG.getString("mysql.port") + "/?useSSL=false";
+        this.url = "jdbc:mysql://" + WhitelistSync2.CONFIG.getString("mysql.ip") + ":" + WhitelistSync2.CONFIG.getString("mysql.port") + "/?allowPublicKeyRetrieval=true&useSSL=false";
         this.username = WhitelistSync2.CONFIG.getString("mysql.username");
         this.password = WhitelistSync2.CONFIG.getString("mysql.password");
     }
