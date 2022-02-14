@@ -1,7 +1,7 @@
 package pw.twpi.whitelistsync2.commands;
 
+import net.rmnad.minecraft.forge.whitelistsynclib.services.BaseService;
 import pw.twpi.whitelistsync2.Utilities;
-import pw.twpi.whitelistsync2.service.BaseService;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
@@ -9,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import pw.twpi.whitelistsync2.json.OppedPlayersFileUtilities;
 
 public class CommandOp implements CommandExecutor {
 
@@ -53,7 +54,7 @@ public class CommandOp implements CommandExecutor {
 
                         if (player != null) {
 
-                            if (service.addOppedPlayer(player)) {
+                            if (service.addOppedPlayer(player.getUniqueId(), player.getName())) {
                                 player.setOp(true);
                                 sender.sendMessage(player.getName() + " opped!");
                             } else {
@@ -82,7 +83,7 @@ public class CommandOp implements CommandExecutor {
 
                         if (player != null) {
 
-                            if (service.removeOppedPlayer(player)) {
+                            if (service.removeOppedPlayer(player.getUniqueId(), player.getName())) {
                                 player.setOp(false);
                                 sender.sendMessage(player.getName() + " de-opped!");
                             } else {
@@ -105,7 +106,17 @@ public class CommandOp implements CommandExecutor {
                         return true;
                     }
 
-                    if (service.copyDatabaseOppedPlayersToLocal(server)) {
+                    boolean status = service.copyDatabaseOppedPlayersToLocal(
+                            OppedPlayersFileUtilities.getOppedPlayers(),
+                            (uuid, name) -> {
+                                Bukkit.getOfflinePlayer(uuid).setOp(true);
+                            },
+                            (uuid, name) -> {
+                                Bukkit.getOfflinePlayer(uuid).setOp(false);
+                            }
+                    );
+
+                    if (status) {
                         sender.sendMessage("Local up to date with database!");
                     } else {
                         sender.sendMessage("Error syncing local to database!");
@@ -119,7 +130,9 @@ public class CommandOp implements CommandExecutor {
                         return true;
                     }
 
-                    if (service.copyLocalOppedPlayersToDatabase()) {
+                    boolean status = service.copyLocalOppedPlayersToDatabase(OppedPlayersFileUtilities.getOppedPlayers());
+
+                    if (status) {
                         sender.sendMessage("Pushed local to database!");
                     } else {
                         sender.sendMessage("Error pushing local to database!");

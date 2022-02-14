@@ -1,16 +1,15 @@
 package pw.twpi.whitelistsync2;
 
+import net.rmnad.minecraft.forge.whitelistsynclib.services.BaseService;
+import net.rmnad.minecraft.forge.whitelistsynclib.services.MySqlService;
+import net.rmnad.minecraft.forge.whitelistsynclib.services.SqLiteService;
 import pw.twpi.whitelistsync2.commands.CommandOp;
 import pw.twpi.whitelistsync2.commands.CommandWhitelist;
-import pw.twpi.whitelistsync2.service.BaseService;
-import pw.twpi.whitelistsync2.service.MySqlService;
-import pw.twpi.whitelistsync2.service.SqLiteService;
 import pw.twpi.whitelistsync2.service.SyncThread;
 import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class WhitelistSync2 extends JavaPlugin {
@@ -70,11 +69,21 @@ public class WhitelistSync2 extends JavaPlugin {
 
 
         if(CONFIG.getString("general.sync-mode").equalsIgnoreCase("SQLITE")) {
-            whitelistService = new SqLiteService();
+            whitelistService = new SqLiteService(
+                    SERVER_FILEPATH,
+                    CONFIG.getBoolean("general.sync-ops")
+            );
             LOGGER.info("Database setup!");
         }
         else if(CONFIG.getString("general.sync-mode").equalsIgnoreCase("MYSQL")) {
-            whitelistService = new MySqlService();
+            whitelistService = new MySqlService(
+                    CONFIG.getString("mysql.database-name"),
+                    CONFIG.getString("mysql.ip"),
+                    CONFIG.getInt("mysql.port"),
+                    CONFIG.getString("mysql.username"),
+                    CONFIG.getString("mysql.password"),
+                    CONFIG.getBoolean("general.sync-ops")
+            );
             LOGGER.info("Database setup!");
         }
         else {

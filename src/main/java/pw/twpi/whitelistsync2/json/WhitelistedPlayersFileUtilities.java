@@ -1,8 +1,8 @@
 package pw.twpi.whitelistsync2.json;
 
 import com.google.gson.*;
+import net.rmnad.minecraft.forge.whitelistsynclib.models.WhitelistedPlayer;
 import pw.twpi.whitelistsync2.WhitelistSync2;
-import pw.twpi.whitelistsync2.models.WhitelistedPlayer;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

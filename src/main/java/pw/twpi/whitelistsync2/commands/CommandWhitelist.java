@@ -1,7 +1,7 @@
 package pw.twpi.whitelistsync2.commands;
 
+import net.rmnad.minecraft.forge.whitelistsynclib.services.BaseService;
 import pw.twpi.whitelistsync2.Utilities;
-import pw.twpi.whitelistsync2.service.BaseService;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
@@ -9,6 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import pw.twpi.whitelistsync2.json.WhitelistedPlayersFileUtilities;
 
 public class CommandWhitelist implements CommandExecutor {
 
@@ -47,15 +48,15 @@ public class CommandWhitelist implements CommandExecutor {
 
                 if (args.length > 1) {
 
-                    OfflinePlayer user = Bukkit.getOfflinePlayer(args[1]);
+                    OfflinePlayer player = Bukkit.getOfflinePlayer(args[1]);
 
-                    if (user != null) {
+                    if (player != null) {
 
-                        if (service.addWhitelistPlayer(user)) {
-                            user.setWhitelisted(true);
-                            sender.sendMessage(user.getName() + " added to the whitelist.");
+                        if (service.addWhitelistPlayer(player.getUniqueId(), player.getName())) {
+                            player.setWhitelisted(true);
+                            sender.sendMessage(player.getName() + " added to the whitelist.");
                         } else {
-                            sender.sendMessage("Error adding " + user.getName() + " from whitelist!");
+                            sender.sendMessage("Error adding " + player.getName() + " from whitelist!");
                         }
 
                     } else {
@@ -79,7 +80,7 @@ public class CommandWhitelist implements CommandExecutor {
                     OfflinePlayer player = Bukkit.getOfflinePlayer(args[1]);
                     if (player != null) {
 
-                        if (service.removeWhitelistPlayer(player)) {
+                        if (service.removeWhitelistPlayer(player.getUniqueId(), player.getName())) {
                             player.setWhitelisted(false);
                             sender.sendMessage(player.getName() + " removed from the whitelist.");
                         } else {
@@ -100,7 +101,17 @@ public class CommandWhitelist implements CommandExecutor {
                     return true;
                 }
 
-                if (service.copyDatabaseWhitelistedPlayersToLocal(server)) {
+                boolean status = service.copyDatabaseWhitelistedPlayersToLocal(
+                        WhitelistedPlayersFileUtilities.getWhitelistedPlayers(),
+                        (uuid, name) -> {
+                            Bukkit.getOfflinePlayer(uuid).setWhitelisted(true);
+                        },
+                        (uuid, name) -> {
+                            Bukkit.getOfflinePlayer(uuid).setWhitelisted(false);
+                        }
+                );
+
+                if (status) {
                     sender.sendMessage("Local up to date with database!");
                 } else {
                     sender.sendMessage("Error syncing local to database!");
@@ -114,7 +125,9 @@ public class CommandWhitelist implements CommandExecutor {
                     return true;
                 }
 
-                if (service.copyLocalWhitelistedPlayersToDatabase()) {
+                boolean status = service.copyLocalWhitelistedPlayersToDatabase(WhitelistedPlayersFileUtilities.getWhitelistedPlayers());
+
+                if (status) {
                     sender.sendMessage("Pushed local to database!");
                 } else {
                     sender.sendMessage("Error pushing local to database!");
