@@ -12,6 +12,8 @@ Looking for a forge mod? Find it on the [WhitelistSync2 GitHub](https://github.c
 ## News
 **[7/31/20]** Version 2.2.1 has been released and includes some bug fixes. **PLEASE NOTE: Once you initially run this version on a MySQL database when using the op sync feature, the older versions of the mod will no longer work and will give SQL errors due to changes in the data structure. To still use older versions of this mod, disable the op sync feature of the older versions or contact me for specific changes.**
 
+**[8/16/22]** This project is primarily for my use as I don't like to put my free-time into it. It is a tool I use and I am happy to keep it open source for others to use as well, but I no longer maintain this project for other people to use. This is part of the reason I no longer maintain it on CurseForge (among other strong feelings I have about the CurseForge platform). I would love to maintain this project for others to use, but this project has ate up so much of my free-time fighting with annoying Forge issues and it lacks any financial incentive to make up for that time. I will still accept issue reports, I just might not get to them in a timely manner. 
+
 ## Installation
 
 #### For SQLite database config:
